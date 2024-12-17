@@ -30,32 +30,34 @@ router.post('/', async (req, res) => {
 router.get('/:cid', async (req, res) => {
     let carts = CartsManager.getCarts()
     let { cid } = req.params
-    cid = Number(cid)
-    if (carts.length === 0) {
-        res.setHeader('Content-Type', 'application/json');
-        return res.status(400).json({ error: `No hay productos ` })
-    }
+    // cid = Number(cid)
+    // if (carts.length === 0) {
+    //     res.setHeader('Content-Type', 'application/json');
+    //     return res.status(400).json({ error: `No hay productos ` })
+    // }
 
-    if (isNaN(cid)) {
-        res.setHeader('Content-Type', 'application/json');
-        return res.status(400).json({ error: `Debe indicar un valor numérico` })
-    }
+    // if (isNaN(cid)) {
+    //     res.setHeader('Content-Type', 'application/json');
+    //     return res.status(400).json({ error: `Debe indicar un valor numérico` })
+    // }
 
 
-    if (cid < 1 || cid > carts.length) {
-        res.setHeader('Content-Type', 'application/json');
-        return res.status(400).json({ error: `La posición debe estar entre 1 y ${carts.length}` })
-    }
+    // if (cid < 1 || cid > carts.length) {
+    //     res.setHeader('Content-Type', 'application/json');
+    //     return res.status(400).json({ error: `La posición debe estar entre 1 y ${carts.length}` })
+    // }
     try {
+        let carts = await CartsManager.getCarts()
         let cart = await CartsManager.getCartsById(cid)
         if (!cart) {
             res.setHeader('Content-Type', 'application/json');
-            return res.status(404).json({ error: `No existe ningun producto con id: ${cid}` })
-
+            return res.status(404).json({ error: `No existe ningun producto con id: ${cart}` })
         }
+        let cartToma = carts[cart]
+
         res.setHeader('Content-Type', 'application/json');
-        return res.status(200).json({ cart });
-    } catch {
+        return res.status(200).json({ cartToma });
+    } catch (error) {
         controlError(res, error)
     }
 

@@ -17,9 +17,11 @@ export class CartsManager {
     }
     static async getCartsById(id) {
         let carts = await this.getCarts()
-        let cart = carts.find(p => p.id === id)
-
-        return cart
+        let indexCart = carts.findIndex(p => p.id === id)
+        if (indexCart === -1) {
+            throw new Error(`Producto no existe con id ${id}`)
+        }
+        return indexCart
     }
 
     static async #record(datos = "") {
@@ -29,12 +31,22 @@ export class CartsManager {
         await fs.promises.writeFile(this.#path, datos)
     }
 
-    static async addProductCarts(products) {
+    static async addProductCarts(products = []) {
         let carts = await this.getCarts();
+        let newId = 1;
+        if (carts.length > 0) {
+            newId = Math.max(...carts.map(c => c.id)) + 1;
+        }
+        const productsWithIds = products.map((product, id) => {
+            if (!product.id) {
+                product.id = id + 1;
+            }
+            return product;
+        });
 
-        const newCart = {
-            id: uuidv4(),
-            products: products || []
+        let newCart = {
+            id: newId,
+            products: productsWithIds || []
         };
         carts.push(newCart);
 
