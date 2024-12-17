@@ -82,7 +82,7 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:pid', async (req, res) => {
-    let products = ProductsManager.getProducts()
+    let products = await ProductsManager.getProducts()
     let { pid } = req.params
     pid = Number(pid)
     if (products.length === 0) {
@@ -129,7 +129,7 @@ router.put('/:pid', async (req, res) => {
 
 router.delete('/:pid', async (req, res) => {
 
-    let products = ProductsManager.getProducts()
+    let products = await ProductsManager.getProducts()
     let { pid } = req.params
 
     pid = Number(pid)
@@ -154,7 +154,7 @@ router.delete('/:pid', async (req, res) => {
 
 
         res.setHeader('Content-Type', 'application/json');
-        return res.status(200).json({ payload: `Se elimino a ${productDeleted} con éxito` }
+        return res.status(200).json({ payload: `Se elimino a ${productDeleted} con éxito`, products }
         );
     } catch (error) {
         controlError(res, error)
