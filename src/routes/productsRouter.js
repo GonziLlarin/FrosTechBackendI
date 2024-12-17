@@ -9,8 +9,13 @@ ProductsManager.setPath('./src/data/products.json')
 
 
 router.get('/', async (req, res) => {
+
     try {
         let products = await ProductsManager.getProducts()
+        let { limit } = req.query
+        if (limit) {
+            products = products.slice(0, limit)
+        }
 
         res.setHeader('Content-Type', 'application/json');
         return res.status(200).json({ products });

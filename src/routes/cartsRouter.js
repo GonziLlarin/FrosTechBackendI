@@ -32,6 +32,10 @@ router.get('/:cid', async (req, res) => {
 
     try {
         let carts = await CartsManager.getCarts();
+        let { limit } = req.query
+        if (limit) {
+            carts = carts.slice(0, limit)
+        }
 
         if (isNaN(cid)) {
             return res.status(400).json({ error: "Debe indicar un valor numérico" });
