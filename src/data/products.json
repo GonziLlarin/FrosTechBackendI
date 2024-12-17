@@ -1,0 +1,92 @@
+[
+     {
+          "id": 1,
+          "title": "Helado de Vainilla",
+          "description": "Helado cremoso con un delicioso sabor a vainilla natural.",
+          "code": "VAN-001",
+          "price": 150,
+          "status": true,
+          "stock": 30,
+          "category": "Clásico"
+     },
+     {
+          "id": 2,
+          "title": "Helado de Chocolate",
+          "description": "Un intenso helado de chocolate con trozos de cacao.",
+          "code": "CHO-002",
+          "price": 160,
+          "status": true,
+          "stock": 20,
+          "category": "Clásico"
+     },
+     {
+          "id": 3,
+          "title": "Helado de Fresa",
+          "description": "Helado refrescante con fresas frescas y naturales.",
+          "code": "FRE-003",
+          "price": 145,
+          "status": true,
+          "stock": 50,
+          "category": "Frutal"
+     },
+     {
+          "id": 4,
+          "title": "Helado de Menta con Chocolate",
+          "description": "Helado de menta con trozos de chocolate oscuro.",
+          "code": "MEN-004",
+          "price": 170,
+          "status": false,
+          "stock": 0,
+          "category": "Especial"
+     },
+     {
+          "id": 5,
+          "title": "Helado de Coco",
+          "description": "Un helado suave y cremoso con un toque de coco rallado.",
+          "code": "COC-005",
+          "price": 180,
+          "status": true,
+          "stock": 15,
+          "category": "Tropical"
+     },
+     {
+          "id": 6,
+          "title": "Helado de Café",
+          "description": "Helado con un sabor intenso a café colombiano.",
+          "code": "CAF-006",
+          "price": 165,
+          "status": true,
+          "stock": 25,
+          "category": "Especial"
+     },
+     {
+          "id": 7,
+          "title": "Helado de Limón",
+          "description": "Helado refrescante con un sabor cítrico a limón.",
+          "code": "LIM-007",
+          "price": 140,
+          "status": true,
+          "stock": 40,
+          "category": "Frutal"
+     },
+     {
+          "id": 8,
+          "title": "Helado de Dulce de Leche",
+          "description": "Delicioso helado con un sabor dulce y cremoso a leche caramelizada.",
+          "code": "DUL-008",
+          "price": 175,
+          "status": true,
+          "stock": 12,
+          "category": "Clásico"
+     },
+     {
+          "id": 9,
+          "title": "Helado de Piña Colada",
+          "description": "Helado tropical con sabor a piña y un toque de coco.",
+          "code": "PIN-009",
+          "price": 190,
+          "status": false,
+          "stock": 0,
+          "category": "Tropical"
+     }
+]
