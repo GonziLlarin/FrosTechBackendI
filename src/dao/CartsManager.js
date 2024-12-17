@@ -38,13 +38,13 @@ export class CartsManager {
         };
 
         // // Si el cuerpo de la petición contiene productos, los agregamos al carrito
-        // if (products && Array.isArray(products)) {
+        // if (products && Array.isArray(req)) {
         //     nuevoCarrito.products = products;
         // }
 
         // Guardamos el nuevo carrito en el arreglo
         carts.push(newCart);
-
+        console.log(carts);
         // Respondemos con el carrito creado
 
         await this.#record(JSON.stringify(carts, null, 5))

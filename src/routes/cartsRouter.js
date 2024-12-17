@@ -4,17 +4,22 @@ import { controlError } from "../utils.js";
 
 
 export const router = Router()
-CartsManager.setPath('./src/data/carts.json')
+CartsManager.setPath('./src/data/carrito.json')
 
 router.post('/', async (req, res) => {
     let carts = await CartsManager.getCarts()
     let { products } = req.body
-    if (products && Array.isArray(products)) {
-        carts.products = (products)
-    }
+
+    // if (products && Array.isArray(products)) {
+    //     newCart.products = (products)
+    // }
+
     try {
         let newCart = await CartsManager.addProductCarts({ products })
-
+        if (products && Array.isArray(products)) {
+            newCart.products = (products)
+        }
+        console.log(newCart);
         res.setHeader('Content-Type', 'application/json');
         return res.status(200).json(newCart);
 
