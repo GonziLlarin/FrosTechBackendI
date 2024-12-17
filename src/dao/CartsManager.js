@@ -16,12 +16,12 @@ export class CartsManager {
         }
     }
     static async getCartsById(id) {
-        let carts = await this.getCarts()
-        let indexCart = carts.findIndex(p => p.id === id)
-        if (indexCart === -1) {
-            throw new Error(`Producto no existe con id ${id}`)
+        let carts = await this.getCarts();
+        let cart = carts.find(cart => cart.id === id);
+        if (!cart) {
+            throw new Error(`El carrito con id ${id} no existe `);
         }
-        return indexCart
+        return cart;
     }
 
     static async #record(datos = "") {
@@ -55,7 +55,32 @@ export class CartsManager {
         return newCart;
     }
 
+    static async updateCart(cartId, productId) {
+        let carts = await this.getCarts();
 
+        const cart = carts.find(cart => cart.id === parseInt(cartId));
+
+        if (!cart) {
+            throw new Error(`Carrito con ID ${cartId} no encontrado`);
+        }
+        productId = parseInt(productId);
+        const productInCart = cart.products.find(item => item.product === productId);
+
+        if (productInCart) {
+            productInCart.quantity += 1;
+        } else {
+            const newProduct = {
+                product: productId,
+                quantity: 1
+            };
+            cart.products.push(newProduct);
+        }
+
+
+        await this.#record(JSON.stringify(carts, null, 5));
+
+        return cart;
+    }
 
 
 
