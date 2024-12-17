@@ -1,34 +1,47 @@
 [
      {
-          "id": "8260c301-972d-4670-8651-09106609ea7f",
-          "products": []
+          "id": "383147f2-b1ea-495b-a093-0f50cabccdd7",
+          "products": [
+               {
+                    "id": "prod1",
+                    "name": "Producto 1",
+                    "price": 100
+               },
+               {
+                    "id": "prod2",
+                    "name": "Producto 2",
+                    "price": 150
+               }
+          ]
      },
      {
-          "id": "e603ec67-de59-47da-a798-b92ac3c3b199",
-          "products": []
+          "id": "d279c580-59b2-4c44-b77e-bd5a5601d8a9",
+          "products": [
+               {
+                    "id": "prod1",
+                    "name": "Producto 1",
+                    "price": 100
+               },
+               {
+                    "id": "prod2",
+                    "name": "Producto 2",
+                    "price": 150
+               }
+          ]
      },
      {
-          "id": "b15f985c-675c-4e54-a17d-c346557912c7",
-          "products": []
-     },
-     {
-          "id": "8c863704-d837-4405-b4aa-9633803f4526",
-          "products": []
-     },
-     {
-          "id": "03cad71b-6742-4c78-bf3c-71f315460e03",
-          "products": []
-     },
-     {
-          "id": "fd5b86ad-b8f1-42dd-a27f-a7271c17efba",
-          "products": []
-     },
-     {
-          "id": "51bd58f8-46d3-4c96-bd31-5cf866faead7",
-          "products": []
-     },
-     {
-          "id": "f98cfb4d-ad78-439b-8790-60a1632621e4",
-          "products": []
+          "id": "4c9a5507-5cb3-4cc0-a959-ecf24fefa451",
+          "products": [
+               {
+                    "id": "prod1",
+                    "name": "Producto 1",
+                    "price": 100
+               },
+               {
+                    "id": "prod2",
+                    "name": "Producto 2",
+                    "price": 150
+               }
+          ]
      }
 ]

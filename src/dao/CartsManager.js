@@ -29,27 +29,20 @@ export class CartsManager {
         await fs.promises.writeFile(this.#path, datos)
     }
 
-    static async addProductCarts() {
-        let carts = await this.getCarts()
+    static async addProductCarts(products) {
+        let carts = await this.getCarts();
 
         const newCart = {
-            id: uuidv4(), // Generamos un ID único para el carrito
-            products: []   // El carrito comienza vacío
+            id: uuidv4(),
+            products: products || []
         };
-
-        // // Si el cuerpo de la petición contiene productos, los agregamos al carrito
-        // if (products && Array.isArray(req)) {
-        //     nuevoCarrito.products = products;
-        // }
-
-        // Guardamos el nuevo carrito en el arreglo
         carts.push(newCart);
-        console.log(carts);
-        // Respondemos con el carrito creado
 
-        await this.#record(JSON.stringify(carts, null, 5))
-        return newCart
+        await this.#record(JSON.stringify(carts, null, 5));
+
+        return newCart;
     }
+
 
 
 

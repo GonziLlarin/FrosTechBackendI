@@ -7,26 +7,24 @@ export const router = Router()
 CartsManager.setPath('./src/data/carrito.json')
 
 router.post('/', async (req, res) => {
-    let carts = await CartsManager.getCarts()
-    let { products } = req.body
-
-    // if (products && Array.isArray(products)) {
-    //     newCart.products = (products)
-    // }
-
     try {
-        let newCart = await CartsManager.addProductCarts({ products })
-        if (products && Array.isArray(products)) {
-            newCart.products = (products)
+        const { products } = req.body;
+
+
+        if (!Array.isArray(products)) {
+            return res.status(400).json({ error: "La prop debe ser un array" });
         }
-        console.log(newCart);
+
+        const newCart = await CartsManager.addProductCarts(products);
+
         res.setHeader('Content-Type', 'application/json');
         return res.status(200).json(newCart);
 
     } catch (error) {
-        controlError(res, error)
+        controlError(res, error);
     }
-})
+});
+
 
 
 router.get('/:cid', async (req, res) => {
